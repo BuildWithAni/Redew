@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+sqlalchemy
+aiosqlite
+python-jose[cryptography]
+passlib[bcrypt]
+python-dotenv
+httpx
+python-multipart
+google-auth
+google-api-python-client
+yt-dlp
+pyrogram
+tgcrypto
+asyncio
+spotipy
+furl

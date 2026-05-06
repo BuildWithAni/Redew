@@ -1,0 +1,94 @@
+{
+  "name": "redew",
+  "private": true,
+  "version": "1.1.0",
+  "author": "Anirudh",
+  "description": "Premium music streaming platform",
+  "type": "module",
+  "main": "main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron:dev": "electron .",
+    "electron:build": "vite build && electron-builder",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "build": {
+    "appId": "com.redew.music",
+    "productName": "Redew Music",
+    "icon": "icon.ico",
+    "directories": {
+      "output": "build_release"
+    },
+    "files": [
+      "dist/**/*",
+      "main.cjs",
+      "package.json",
+      "icon.ico"
+    ],
+    "extraResources": [
+      {
+        "from": "backend/dist/backend.exe",
+        "to": "backend.exe"
+      },
+      {
+        "from": "backend/.env",
+        "to": ".env"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico",
+      "signAndEditExecutable": false
+    },
+    "forceCodeSigning": false,
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "shortcutName": "Redew Music"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Hey-Anirudh",
+        "repo": "Redew-Music"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.11.1",
+    "@electron-forge/maker-deb": "^7.11.1",
+    "@electron-forge/maker-rpm": "^7.11.1",
+    "@electron-forge/maker-squirrel": "^7.11.1",
+    "@electron-forge/maker-zip": "^7.11.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.11.1",
+    "@electron-forge/plugin-fuses": "^7.11.1",
+    "@electron/fuses": "^1.8.0",
+    "electron": "^41.5.0",
+    "electron-builder": "^26.8.1",
+    "electron-is-dev": "^3.0.1",
+    "electron-updater": "^6.8.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.0.10"
+  },
+  "dependencies": {
+    "@react-oauth/google": "^0.13.5",
+    "@vitejs/plugin-react-swc": "^4.3.0",
+    "axios": "^1.16.0",
+    "clsx": "^2.1.1",
+    "electron-is-dev": "^3.0.1",
+    "electron-squirrel-startup": "^1.0.1",
+    "electron-updater": "^6.3.9",
+    "framer-motion": "^12.38.0",
+    "hls.js": "^1.6.16",
+    "lucide-react": "^1.14.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "tailwind-merge": "^3.5.0"
+  }
+}
